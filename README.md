@@ -14,9 +14,12 @@ This repo has two purposes:
 ```bash
 oc create -f https://raw.githubusercontent.com/thomas-mattsson/cloud-pak-deployer-gitops/main/resources/build.yaml
 ```
-4. Wait until the build above is finished. You can track it in the Builds/Builds section in the Openshift console.
-5. Run the following commands. You will need to insert your IBM entitlement registry key where indicated. 
+4. Add your entitlement key in a secret using the following command. You will need to insert your IBM entitlement registry key where indicated.
 ```bash
 oc create secret generic cloud-pak-deployer-input -n cloud-pak-deployer --from-literal entitlement-key="<your entitlement key>"
+```
+5. Wait until the build from step 3 is finished. You can track it in the Builds/Builds section in the Openshift console.
+6. Run the following command to start the deployment job using the configuration from the `config` directory.
+```bash
 oc create -f https://raw.githubusercontent.com/thomas-mattsson/cloud-pak-deployer-gitops/main/resources/resources.yaml
 ```
