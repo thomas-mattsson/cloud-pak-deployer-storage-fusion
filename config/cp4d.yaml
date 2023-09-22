@@ -6,6 +6,7 @@ cp4d:
   cp4d_entitlement: cpd-enterprise
   cp4d_production_license: True
   accept_licenses: True
+  change_node_settings: False
   sequential_install: False
   operators_project: cpd-operators
   cartridges:
