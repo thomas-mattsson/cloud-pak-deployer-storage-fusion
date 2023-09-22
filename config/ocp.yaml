@@ -1,15 +1,15 @@
 ---
 global_config:
-  environment_name: sample
+  environment_name: cloudpak
   cloud_platform: existing-ocp
-  env_id: ocp-50f1njf3h5-1axg
+  env_id: PATCHED_BY_JOB
   confirm_destroy: False
 
 openshift:
 - name: "{{ env_id }}"
   ocp_version: 4.12
   cluster_name: "{{ env_id }}"
-  domain_name: cloud.techzone.ibm.com
+  domain_name: PATCHED_BY_JOB
   openshift_storage:
   - storage_name: custom
     storage_type: custom
