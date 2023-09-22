@@ -23,3 +23,8 @@ oc create secret generic cloud-pak-deployer-input -n cloud-pak-deployer --from-l
 ```bash
 oc create -f https://raw.githubusercontent.com/thomas-mattsson/cloud-pak-deployer-gitops/main/resources/resources.yaml
 ```
+
+Logs can be followed with
+```bash
+oc logs -f -n cloud-pak-deployer job/cloud-pak-deployer
+```
