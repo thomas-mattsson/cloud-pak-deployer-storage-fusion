@@ -5,7 +5,7 @@ cp4d:
   cp4d_version: 4.7.2
   cp4d_entitlement: cpd-enterprise
   cp4d_production_license: True
-  accept_licenses: False
+  accept_licenses: True
   sequential_install: False
   operators_project: cpd-operators
   cartridges:
