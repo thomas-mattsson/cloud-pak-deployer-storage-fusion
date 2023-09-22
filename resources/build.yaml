@@ -1,0 +1,36 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: null
+  name: cloud-pak-deployer
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: cloud-pak-deployer
+spec:
+  lookupPolicy:
+    local: true
+---
+kind: Build
+apiVersion: build.openshift.io/v1
+metadata:
+  generateName: cloud-pak-deployer-bc-
+  namespace: cloud-pak-deployer
+spec:
+  serviceAccount: builder
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/IBM/cloud-pak-deployer'
+  strategy:
+    type: Docker
+    dockerStrategy:
+      imageOptimizationPolicy: SkipLayers
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'cloud-pak-deployer:latest'
+  triggers:
+    - type: ConfigChange
