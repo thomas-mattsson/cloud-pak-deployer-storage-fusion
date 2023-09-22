@@ -1,0 +1,180 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: cloud-pak-deployer-input
+  namespace: cloud-pak-deployer
+data:
+  config-git-repo: https://github.com/thomas-mattsson/cloud-pak-deployer-gitops
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: cloud-pak-deployer
+spec:
+  lookupPolicy:
+    local: true
+---
+kind: Build
+apiVersion: build.openshift.io/v1
+metadata:
+  generateName: cloud-pak-deployer-bc-
+  namespace: cloud-pak-deployer
+spec:
+  serviceAccount: builder
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/IBM/cloud-pak-deployer'
+  strategy:
+    type: Docker
+    dockerStrategy:
+      imageOptimizationPolicy: SkipLayers
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'cloud-pak-deployer:latest'
+  triggers:
+    - type: ConfigChange
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: cloud-pak-deployer-sa
+  namespace: cloud-pak-deployer
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: system:openshift:scc:privileged
+  namespace: cloud-pak-deployer
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:openshift:scc:privileged
+subjects:
+- kind: ServiceAccount
+  name: cloud-pak-deployer-sa
+  namespace: cloud-pak-deployer
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cloud-pak-deployer-cluster-admin
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: cloud-pak-deployer-sa
+  namespace: cloud-pak-deployer
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cloud-pak-deployer-status
+  namespace: cloud-pak-deployer
+spec:
+  storageClassName: ocs-storagecluster-cephfs
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  labels:
+    app: cloud-pak-deployer
+  name: cloud-pak-deployer
+  namespace: cloud-pak-deployer
+spec:
+  parallelism: 1
+  completions: 1
+  backoffLimit: 0
+  template:
+    metadata:
+      name: cloud-pak-deployer
+      labels:
+        app: cloud-pak-deployer
+    spec:
+      containers:
+      - name: cloud-pak-deployer
+        image: image-registry.openshift-image-registry.svc:5000/cloud-pak-deployer/cloud-pak-deployer:latest
+        imagePullPolicy: Always
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        env:
+        - name: STATUS_DIR
+          value: /Data/cpd-status
+        - name: CP_ENTITLEMENT_KEY
+          valueFrom:
+            secretKeyRef:
+              name: cloud-pak-deployer-input
+              key: entitlement-key
+        - name: CONFIG_GIT_REPO
+          valueFrom:
+            configMapKeyRef:
+              name: cloud-pak-deployer-input
+              key: config-git-repo
+        - name: CONFIG_GIT_REF
+          valueFrom:
+            configMapKeyRef:
+              name: cloud-pak-deployer-input
+              key: config-git-ref
+              optional: true
+        - name: CONFIG_GIT_CONTEXT
+          valueFrom:
+            configMapKeyRef:
+              name: cloud-pak-deployer-input
+              key: config-git-context
+              optional: true
+        volumeMounts:
+        - name: status-volume
+          mountPath: /Data/cpd-status
+        command:
+          - /bin/bash
+          - -cx
+        args:
+          - |
+            echo "Using ${CONFIG_GIT_REPO}/${CONFIG_GIT_CONTEXT} for configuration"
+
+            if [ "${CONFIG_GIT_REPO}" != "" ];then
+              export CONFIG_DIR=$STATUS_DIR/cpd-config
+              rm -rf ${CONFIG_DIR}
+              mkdir -p ${CONFIG_DIR}
+              git_cmd="git clone"
+              if [ "${CONFIG_GIT_REF}" != "" ];then
+                git_cmd+=" -b ${CONFIG_GIT_REF}"
+              fi
+              git_cmd+=" ${CONFIG_GIT_REPO}"
+              git_cmd+=" ${CONFIG_DIR}"
+              echo "Cloning git repository ${CONFIG_GIT_REPO}..."
+              eval ${git_cmd}
+              if [ "${CONFIG_GIT_CONTEXT}" != "" ];then
+                CONFIG_DIR=${CONFIG_DIR}/${CONFIG_GIT_CONTEXT}
+              fi
+            fi
+
+            if [ -f ${CONFIG_DIR}/config/ocp.yaml ];then
+              oc login -s kubernetes.default --token $(oc whoami -t) --insecure-skip-tls-verify
+              export BASE_DOMAIN=$(oc get cm cluster-config-v1 -n kube-system -o yaml | yq '.data.install-config' | yq '.baseDomain')
+              export CLUSTER_NAME=$(oc get cm cluster-config-v1 -n kube-system -o yaml | yq '.data.install-config' | yq '.metadata.name')
+              yq -i '.global_config.env_id = env(CLUSTER_NAME)' ${CONFIG_DIR}/config/ocp.yaml
+              yq -i '.openshift[0].cluster_name = env(CLUSTER_NAME)' ${CONFIG_DIR}/config/ocp.yaml
+              yq -i '.openshift[0].domain_name = env(BASE_DOMAIN)' ${CONFIG_DIR}/config/ocp.yaml
+              yq -P ${CONFIG_DIR}/config/ocp.yaml
+            fi
+
+            cd /cloud-pak-deployer
+            ./cp-deploy.sh env apply -v
+
+      restartPolicy: Never
+      securityContext:
+        runAsUser: 0
+      serviceAccountName: cloud-pak-deployer-sa
+      volumes:
+      - name: status-volume
+        persistentVolumeClaim:
+          claimName: cloud-pak-deployer-status 
