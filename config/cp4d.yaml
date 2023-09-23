@@ -6,7 +6,7 @@ cp4d:
   cp4d_entitlement: cpd-enterprise
   cp4d_production_license: True
   accept_licenses: True
-  change_node_settings: False
+  change_node_settings: True
   sequential_install: False
   operators_project: cpd-operators
   cartridges:
@@ -95,11 +95,11 @@ cp4d:
 
   - name: db2wh
     description: Db2 Warehouse
-    state: removed
+    state: installed
 
   - name: dmc
     description: Db2 Data Management Console
-    state: removed
+    state: installed
 
   - name: dods
     description: Decision Optimization
@@ -218,12 +218,12 @@ cp4d:
 
   - name: watsonx_data
     description: watsonx.data
-    state: removed
+    state: installed
 
   - name: wkc
     description: Watson Knowledge Catalog
     size: small
-    state: removed
+    state: installed
     installation_options:
       install_wkc_core_only: False
       enableKnowledgeGraph: False
@@ -261,7 +261,7 @@ cp4d:
     - ibm-cpd-ws-runtime-r36
     - ibm-cpd-ws-runtime-222-r
     - ibm-cpd-ws-runtime-231-r
-    state: removed 
+    state: installed 
 
 #
 # Cartridges where extra work is needed (will not install automatically)
