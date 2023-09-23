@@ -9,6 +9,7 @@ apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
   name: cloud-pak-deployer
+  namespace: cloud-pak-deployer
 spec:
   lookupPolicy:
     local: true
@@ -32,5 +33,4 @@ spec:
     to:
       kind: ImageStreamTag
       name: 'cloud-pak-deployer:latest'
-  triggers:
-    - type: ConfigChange
+
