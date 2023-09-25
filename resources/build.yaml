@@ -14,13 +14,12 @@ spec:
   lookupPolicy:
     local: true
 ---
-kind: Build
+kind: BuildConfig
 apiVersion: build.openshift.io/v1
 metadata:
-  generateName: cloud-pak-deployer-bc-
+  name: cloud-pak-deployer
   namespace: cloud-pak-deployer
 spec:
-  serviceAccount: builder
   source:
     type: Git
     git:
@@ -29,6 +28,8 @@ spec:
     type: Docker
     dockerStrategy:
       imageOptimizationPolicy: SkipLayers
+  trigger:
+    - type: "ConfigChange"
   output:
     to:
       kind: ImageStreamTag
