@@ -2,13 +2,13 @@
 global_config:
   environment_name: cloudpak
   cloud_platform: existing-ocp
-  env_id: PATCHED_BY_JOB
+  env_id: ocp
   confirm_destroy: False
 
 openshift:
 - name: "{{ env_id }}"
   ocp_version: 4.12
-  cluster_name: "{{ env_id }}"
+  cluster_name: PATCHED_BY_JOB
   domain_name: PATCHED_BY_JOB
   openshift_storage:
   - storage_name: custom
