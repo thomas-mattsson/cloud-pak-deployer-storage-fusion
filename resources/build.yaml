@@ -28,7 +28,7 @@ spec:
     type: Docker
     dockerStrategy:
       imageOptimizationPolicy: SkipLayers
-  trigger:
+  triggers:
     - type: "ConfigChange"
   output:
     to:
