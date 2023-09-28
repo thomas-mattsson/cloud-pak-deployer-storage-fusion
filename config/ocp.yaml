@@ -13,5 +13,5 @@ openshift:
   openshift_storage:
   - storage_name: custom
     storage_type: custom
-    ocp_storage_class_file: ocs-storagecluster-cephfs
-    ocp_storage_class_block: ocs-storagecluster-ceph-rbd
+    ocp_storage_class_file: ibm-storage-fusion-cp-sc #ocs-storagecluster-cephfs
+    ocp_storage_class_block: ibm-storage-fusion-cp-sc #ocs-storagecluster-ceph-rbd
