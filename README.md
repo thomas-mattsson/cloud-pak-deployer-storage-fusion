@@ -1,10 +1,19 @@
-# cloud-pak-deployer-gitops
+# cloud-pak-deployer-storage-fusion
 
 This repo is using [Cloud pak deployer](https://ibm.github.io/cloud-pak-deployer).
 
 This repo has two purposes:
 1. Build the Cloud pak deployed in Openshift making it available to deploying Cloud paks.
 2. Containing the configuration that will be used by the Cloud pak deployer
+
+## Prereqs
+
+Several Cloud pak for Data services (such as Watson Assistant, Watson Discovery and Watson Knowledge catalog) [requires Multicloud Object Gateway (MCG)](https://www.ibm.com/docs/en/cloud-paks/cp-data/4.7.x?topic=cluster-installing-multicloud-object-gateway).
+Unless the complete ODF storage solution is installed, MCG can be installed stand-alone on Storage Fusion following these instructions:
+<https://www.ibm.com/docs/en/storage-fusion/2.6?topic=quay-installing-red-hat-openshift-data-foundation-operator>
+<https://www.ibm.com/docs/en/storage-fusion/2.6?topic=quay-creating-stand-alone-mcg>
+
+See https://github.com/IBM/cloud-pak-deployer/issues/527 for having Cloud pak deployer to do this step as well.
 
 ## Instructions
 
