@@ -18,7 +18,7 @@ See https://github.com/IBM/cloud-pak-deployer/issues/527 for having Cloud pak de
 ## Instructions
 
 1. Fork this repo if you want to change the configuration in /config. Make sure to update the [URL to the git repo](https://github.com/thomas-mattsson/cloud-pak-deployer-gitops/blob/main/resources/resources.yaml#L7) if doing so.
-2. If forked, update the configuration files in /config to match the wanted environment. See details in the cloud pak deployer instuctions.
+2. If forked, update the configuration files in /config to match the wanted environment. See details in the cloud pak deployer instructions.
 3. Run the following commands to build cloud pak deployer
 ```bash
 oc create -f https://raw.githubusercontent.com/thomas-mattsson/cloud-pak-deployer-gitops/main/resources/build.yaml
