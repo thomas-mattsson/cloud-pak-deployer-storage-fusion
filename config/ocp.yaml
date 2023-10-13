@@ -10,6 +10,10 @@ openshift:
   ocp_version: 4.12
   cluster_name: PATCHED_BY_JOB
   domain_name: PATCHED_BY_JOB
+  mcg:
+    install: True
+    storage_type: storage-class
+    storage_class: ibm-spectrum-fusion
   openshift_storage:
   - storage_name: custom
     storage_type: custom
