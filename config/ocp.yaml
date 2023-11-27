@@ -3,7 +3,7 @@ global_config:
   environment_name: cloudpak
   cloud_platform: existing-ocp
   env_id: ocp
-  confirm_destroy: False
+  confirm_destroy: True
 
 openshift:
 - name: "{{ env_id }}"
