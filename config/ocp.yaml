@@ -13,7 +13,7 @@ openshift:
   mcg:
     install: True
     storage_type: storage-class
-    storage_class: ibm-spectrum-fusion
+    storage_class: ibm-storage-fusion-cp-sc
   openshift_storage:
   - storage_name: custom
     storage_type: custom
