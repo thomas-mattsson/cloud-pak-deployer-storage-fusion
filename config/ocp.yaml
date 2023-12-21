@@ -10,6 +10,8 @@ openshift:
   ocp_version: 4.12
   cluster_name: PATCHED_BY_JOB
   domain_name: PATCHED_BY_JOB
+  gpu:
+    install: False
   mcg:
     install: True
     storage_type: storage-class
