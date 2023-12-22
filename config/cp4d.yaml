@@ -95,11 +95,11 @@ cp4d:
 
   - name: db2wh
     description: Db2 Warehouse
-    state: installed
+    state: removed
 
   - name: dmc
     description: Db2 Data Management Console
-    state: installed
+    state: removed
 
   - name: dods
     description: Decision Optimization
@@ -141,7 +141,7 @@ cp4d:
   - name: factsheet
     description: AI Factsheets
     size: small
-    state: installed
+    state: removed
 
   - name: hadoop
     description: Execution Engine for Apache Hadoop
@@ -177,7 +177,7 @@ cp4d:
   - name: rstudio
     description: RStudio Server with R 3.6
     size: small
-    state: installed
+    state: removed
 
   - name: spss
     description: SPSS Modeler
@@ -225,7 +225,7 @@ cp4d:
   # Node Feature Discovery and NVIDIA GPU operators. You can do so by setting the openshift.gpu.install property to True
   - name: watsonx_ai
     description: watsonx.ai
-    state: removed
+    state: installed
     models:
     - model_id: google-flan-t5-xxl
       state: removed
@@ -238,7 +238,7 @@ cp4d:
     - model_id: ibm-granite-13b-instruct-v1
       state: removed
     - model_id: meta-llama-llama-2-70b-chat
-      state: removed
+      state: installed
     - model_id: ibm-mpt-7b-instruct2
       state: removed
     - model_id: bigscience-mt0-xxl
@@ -248,12 +248,12 @@ cp4d:
 
   - name: watsonx_data
     description: watsonx.data
-    state: installed
+    state: removed
 
   - name: wkc
     description: Watson Knowledge Catalog
     size: small
-    state: installed
+    state: removed
     installation_options:
       install_wkc_core_only: False
       enableKnowledgeGraph: False
