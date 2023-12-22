@@ -28,6 +28,11 @@ spec:
     type: Docker
     dockerStrategy:
       imageOptimizationPolicy: SkipLayers
+      buildArgs:
+        - name: CPD_OLM_UTILS_V1_IMAGE
+          value: 'icr.io/cpopen/cpd/olm-utils:latest'
+        - name: CPD_OLM_UTILS_V2_IMAGE
+          value: 'icr.io/cpopen/cpd/olm-utils-v2:latest'
   triggers:
     - type: "ConfigChange"
   output:
