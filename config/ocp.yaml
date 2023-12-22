@@ -11,13 +11,13 @@ openshift:
   cluster_name: PATCHED_BY_JOB
   domain_name: PATCHED_BY_JOB
   gpu:
-    install: False
-  mcg:
     install: True
+  mcg:
+    install: False
     storage_type: storage-class
-    storage_class: ibm-storage-fusion-cp-sc
+    storage_class: ibm-spectrum-scale-sc
   openshift_storage:
   - storage_name: custom
     storage_type: custom
-    ocp_storage_class_file: ibm-storage-fusion-cp-sc #ocs-storagecluster-cephfs
-    ocp_storage_class_block: ibm-storage-fusion-cp-sc #ocs-storagecluster-ceph-rbd
+    ocp_storage_class_file: ibm-spectrum-scale-sc
+    ocp_storage_class_block: ibm-spectrum-scale-sc
