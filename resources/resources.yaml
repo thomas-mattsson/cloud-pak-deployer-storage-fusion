@@ -46,7 +46,7 @@ metadata:
   name: cloud-pak-deployer-status
   namespace: cloud-pak-deployer
 spec:
-  storageClassName: ibm-storage-fusion-cp-sc  # ocs-storagecluster-cephfs
+  storageClassName: ibm-spectrum-scale-sc
   accessModes:
   - ReadWriteMany
   resources:
