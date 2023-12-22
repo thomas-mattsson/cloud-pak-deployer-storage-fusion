@@ -151,7 +151,7 @@ cp4d:
   - name: mantaflow
     description: MANTA Automated Lineage
     size: small
-    state: removed
+    state: installed
 
   - name: match360
     description: IBM Match 360
@@ -259,7 +259,7 @@ cp4d:
       enableKnowledgeGraph: False
       enableDataQuality: False
       enableFactSheet: True
-      enableMANTA: False
+      enableMANTA: True
 
   - name: wml
     description: Watson Machine Learning
