@@ -238,7 +238,7 @@ cp4d:
     - model_id: ibm-granite-13b-instruct-v1
       state: removed
     - model_id: meta-llama-llama-2-70b-chat
-      state: installed
+      state: removed
     - model_id: ibm-mpt-7b-instruct2
       state: removed
     - model_id: bigscience-mt0-xxl
