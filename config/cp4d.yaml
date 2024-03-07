@@ -228,23 +228,25 @@ cp4d:
     state: installed
     models:
     - model_id: google-flan-t5-xxl
-      state: installed
+      state: removed
     - model_id: google-flan-ul2
-      state: installed
+      state: removed
     - model_id: eleutherai-gpt-neox-20b
       state: removed
     - model_id: ibm-granite-13b-chat-v1
-      state: installed
+      state: removed
     - model_id: ibm-granite-13b-instruct-v1
-      state: installed
+      state: removed
     - model_id: meta-llama-llama-2-70b-chat
-      state: installed
+      state: removed
     - model_id: ibm-mpt-7b-instruct2
       state: removed
     - model_id: bigscience-mt0-xxl
       state: removed
     - model_id: bigcode-starcoder
       state: removed
+    - model_id: meta-llama-llama-2-13b-chat
+      state: installed
 
   - name: watsonx_data
     description: watsonx.data
