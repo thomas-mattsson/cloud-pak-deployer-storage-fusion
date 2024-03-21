@@ -2,11 +2,11 @@
 cp4d:
 - project: cpd
   openshift_cluster_name: "{{ env_id }}"
-  cp4d_version: 4.8.3
+  cp4d_version: 4.8.1
   cp4d_entitlement: cpd-enterprise
   cp4d_production_license: False
   accept_licenses: True
-  change_node_settings: False
+  change_node_settings: True
   sequential_install: False
   operators_project: cpd-operators
   cartridges:
@@ -95,11 +95,11 @@ cp4d:
 
   - name: db2wh
     description: Db2 Warehouse
-    state: removed
+    state: installed
 
   - name: dmc
     description: Db2 Data Management Console
-    state: removed
+    state: installed
 
   - name: dods
     description: Decision Optimization
@@ -141,7 +141,7 @@ cp4d:
   - name: factsheet
     description: AI Factsheets
     size: small
-    state: removed
+    state: installed
 
   - name: hadoop
     description: Execution Engine for Apache Hadoop
@@ -151,7 +151,7 @@ cp4d:
   - name: mantaflow
     description: MANTA Automated Lineage
     size: small
-    state: removed
+    state: installed
 
   - name: match360
     description: IBM Match 360
@@ -177,7 +177,7 @@ cp4d:
   - name: rstudio
     description: RStudio Server with R 3.6
     size: small
-    state: removed
+    state: installed
 
   - name: spss
     description: SPSS Modeler
@@ -225,7 +225,7 @@ cp4d:
   # Node Feature Discovery and NVIDIA GPU operators. You can do so by setting the openshift.gpu.install property to True
   - name: watsonx_ai
     description: watsonx.ai
-    state: installed
+    state: removed
     models:
     - model_id: google-flan-t5-xxl
       state: removed
@@ -245,8 +245,6 @@ cp4d:
       state: removed
     - model_id: bigcode-starcoder
       state: removed
-    - model_id: meta-llama-llama-2-13b-chat
-      state: installed
 
   - name: watsonx_data
     description: watsonx.data
@@ -255,7 +253,7 @@ cp4d:
   - name: wkc
     description: Watson Knowledge Catalog
     size: small
-    state: removed
+    state: installed
     installation_options:
       install_wkc_core_only: False
       enableKnowledgeGraph: False
