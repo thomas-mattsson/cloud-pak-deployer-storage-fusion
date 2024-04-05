@@ -249,11 +249,11 @@ cp4d:
       state: removed
     - model_id: meta-llama-llama-2-13b-chat
       state: removed
-    - model_id: mixtral-8x7b-instruct-v01-q
+    - model_id: ibm-mistralai-mixtral-8x7b-instruct-v01-q
       state: installed
-    - model_id: granite-20b-multilingual
+    - model_id: ibm-granite-20b-multilingual
       state: removed
-    - model_id: codellama-34b-instruct
+    - model_id: codellama-codellama-34b-instruct-hf
       state: removed
 
   - name: watsonx_data
