@@ -234,11 +234,13 @@ cp4d:
     - model_id: eleutherai-gpt-neox-20b
       state: removed
     - model_id: ibm-granite-13b-chat-v1
-      state: removed
+      state: removed # deprecated
     - model_id: ibm-granite-13b-instruct-v1
-      state: removed
+      state: removed # deprecated
+    - model_id: ibm-granite-13b-chat-v2
+      state: installed
     - model_id: meta-llama-llama-2-70b-chat
-      state: removed
+      state: installed
     - model_id: ibm-mpt-7b-instruct2
       state: removed
     - model_id: bigscience-mt0-xxl
@@ -246,7 +248,13 @@ cp4d:
     - model_id: bigcode-starcoder
       state: removed
     - model_id: meta-llama-llama-2-13b-chat
+      state: removed
+    - model_id: mixtral-8x7b-instruct-v01-q
       state: installed
+    - model_id: granite-20b-multilingual
+      state: removed
+    - model_id: codellama-34b-instruct
+      state: removed
 
   - name: watsonx_data
     description: watsonx.data
