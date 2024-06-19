@@ -12,6 +12,9 @@ openshift:
   domain_name: PATCHED_BY_JOB
   gpu:
     install: False
+  openshift_ai:
+    install: False
+    channel: fast
   mcg:
     install: True
     storage_type: storage-class
