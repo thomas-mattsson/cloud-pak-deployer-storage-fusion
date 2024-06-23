@@ -276,7 +276,7 @@ cp4d:
       state: removed
     - model_id: meta-llama-llama-2-70b-chat
       state: removed
-    - model_id: meta-llama-llama-3-70b-chat
+    - model_id: meta-llama-llama-3-70b-instruct
       state: installed
     - model_id: mncai-llama-2-13b-dpo-v7
       state: removed
