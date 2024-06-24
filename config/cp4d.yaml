@@ -285,7 +285,7 @@ cp4d:
     - model_id: ibm-mpt-7b-instruct2
       state: removed
     - model_id: mistralai-mixtral-8x7b-instruct-v01
-      state: installed
+      state: removed
     - model_id: ibm-mistralai-mixtral-8x7b-instruct-v01-q
       state: removed
     - model_id: bigscience-mt0-xxl
