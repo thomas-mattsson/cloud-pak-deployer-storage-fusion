@@ -7,7 +7,7 @@ cp4d:
   cp4d_production_license: False
   accept_licenses: True
   change_node_settings: False
-  sequential_install: False
+  sequential_install: True
   db2u_limited_privileges: False
   use_fs_iam: False
   operators_project: cpd-operators
