@@ -261,17 +261,17 @@ cp4d:
     - model_id: ibm-granite-13b-chat-v1
       state: removed
     - model_id: ibm-granite-13b-chat-v2
-      state: installed
+      state: removed
     - model_id: ibm-granite-13b-instruct-v1
       state: removed
     - model_id: ibm-granite-13b-instruct-v2
-      state: installed
+      state: removed
     - model_id: ibm-granite-20b-multilingual
       state: removed
     - model_id: core42-jais-13b-chat
       state: removed
     - model_id: meta-llama-llama-2-13b-chat
-      state: removed
+      state: installed
     - model_id: meta-llama-llama3-8b-instruct
       state: removed
     - model_id: meta-llama-llama-2-70b-chat
@@ -285,7 +285,7 @@ cp4d:
     - model_id: ibm-mpt-7b-instruct2
       state: removed
     - model_id: mistralai-mixtral-8x7b-instruct-v01
-      state: removed
+      state: installed
     - model_id: ibm-mistralai-mixtral-8x7b-instruct-v01-q
       state: removed
     - model_id: bigscience-mt0-xxl
