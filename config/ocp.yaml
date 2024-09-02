@@ -13,7 +13,7 @@ openshift:
   gpu:
     install: False
   openshift_ai:
-    install: False
+    install: True
     channel: fast
   mcg:
     install: True
