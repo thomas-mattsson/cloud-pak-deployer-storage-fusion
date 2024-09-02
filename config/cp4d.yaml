@@ -8,7 +8,7 @@ cp4d:
   accept_licenses: True
   sequential_install: True
   db2u_limited_privileges: False
-  use_fs_iam: False
+  use_fs_iam: True
   operators_project: cpd-operators
   cartridges:
   - name: cp-foundation
