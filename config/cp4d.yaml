@@ -90,12 +90,12 @@ cp4d:
     description: Db2 OLTP
     size: small
     instances:
-    - name: ca-metastore
+    - name: openscale-db2
       metadata_size_gb: 20
       data_size_gb: 20
       backup_size_gb: 20  
       transactionlog_size_gb: 20
-    state: removed
+    state: installed
 
   - name: db2wh
     description: Db2 Warehouse
