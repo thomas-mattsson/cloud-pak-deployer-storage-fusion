@@ -278,7 +278,7 @@ cp4d:
       state: removed
     - model_id: meta-llama-llama-3-70b-instruct
       state: removed
-    - model_id: meta-llama-llama-3-1-70b-instruct
+    - model_id: llama-3-1-70b-instruct
       state: installed
     - model_id: mncai-llama-2-13b-dpo-v7
       state: removed
@@ -294,6 +294,10 @@ cp4d:
       state: removed
     - model_id: bigcode-starcoder
       state: removed
+    - model_id: all-minilm-l6-v2
+      state: installed
+    - model_id: multilingual-e5-large
+      state: installed
 
   - name: watsonx_data
     description: watsonx.data
