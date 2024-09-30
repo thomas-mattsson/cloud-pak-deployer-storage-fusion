@@ -277,9 +277,9 @@ cp4d:
     - model_id: meta-llama-llama-2-70b-chat
       state: removed
     - model_id: meta-llama-llama-3-70b-instruct
-      state: removed
-    - model_id: llama-3-1-70b-instruct
       state: installed
+    - model_id: llama-3-1-70b-instruct
+      state: removed
     - model_id: mncai-llama-2-13b-dpo-v7
       state: removed
     - model_id: ibm-mistralai-merlinite-7b
