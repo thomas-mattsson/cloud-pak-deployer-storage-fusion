@@ -298,6 +298,10 @@ cp4d:
       state: installed
     - model_id: multilingual-e5-large
       state: installed
+    - model_id: slate-125m-english-rtrvr-v2
+      state: installed
+    - model_id: slate-30m-english-rtrvr-v2
+      state: installed
 
   - name: watsonx_data
     description: watsonx.data
