@@ -168,6 +168,10 @@ cp4d:
     wkc_enabled: true
     state: removed
 
+  - name: mongodb_cp4d
+    description: MongoDB
+    state: installed
+
   - name: openpages
     description: OpenPages
     state: removed
