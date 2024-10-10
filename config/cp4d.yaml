@@ -168,8 +168,8 @@ cp4d:
     wkc_enabled: true
     state: removed
 
-  - name: mongodb_cp4d
-    description: MongoDB
+  - name: mongodb
+    description: MongoDB for Cloud Pak for Data
     state: installed
 
   - name: openpages
