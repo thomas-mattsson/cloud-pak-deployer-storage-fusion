@@ -2,13 +2,13 @@
 cp4d:
 - project: cpd
   openshift_cluster_name: "{{ env_id }}"
-  cp4d_version: 5.0.2
+  cp4d_version: 5.1.0
   cp4d_entitlement: cpd-enterprise           # or: cpd-standard, watsonx-ai, watsonx-data, watsonx-gov-model-management, watsonx-gov-risk-compliance
   cp4d_production_license: False
   accept_licenses: True
   sequential_install: True
   db2u_limited_privileges: False
-  use_fs_iam: True
+  use_fs_iam: False
   operators_project: cpd-operators
   cartridges:
   - name: cp-foundation
@@ -95,15 +95,15 @@ cp4d:
       data_size_gb: 20
       backup_size_gb: 20  
       transactionlog_size_gb: 20
-    state: installed
+    state: removed
 
   - name: db2wh
     description: Db2 Warehouse
-    state: installed
+    state: removed
 
   - name: dmc
     description: Db2 Data Management Console
-    state: installed
+    state: removed
     #instances:
     #- name: data-management-console
     #  description: Data Management Console
@@ -160,7 +160,7 @@ cp4d:
   - name: mantaflow
     description: MANTA Automated Lineage
     size: small
-    state: installed
+    state: removed
 
   - name: match360
     description: IBM Match 360
@@ -170,7 +170,7 @@ cp4d:
 
   - name: mongodb
     description: MongoDB for Cloud Pak for Data
-    state: installed
+    state: removed
 
   - name: openpages
     description: OpenPages
@@ -210,7 +210,7 @@ cp4d:
     size: small
     # noobaa_account_secret: noobaa-admin
     # noobaa_cert_secret: noobaa-s3-serving-cert
-    state: installed
+    state: removed
     instances: []
     #- name: wa-instance
     #  description: "Watson Assistant instance"
@@ -300,7 +300,7 @@ cp4d:
 
   - name: watsonx_governance
     description: watsonx.governance
-    state: installed
+    state: removed
     installation_options:
       installType: all
       enableFactsheet: true
@@ -313,12 +313,12 @@ cp4d:
       app_connect_project: ibm-app-connect
       app_connect_case_version: 11.5.0
       app_connect_channel_version: v11.5
-    state: installed
+    state: removed
 
   - name: wkc
     description: Watson Knowledge Catalog
     size: small
-    state: installed
+    state: removed
     installation_options:
       install_wkc_core_only: False
       enableKnowledgeGraph: False
@@ -328,7 +328,7 @@ cp4d:
   - name: wml
     description: Watson Machine Learning
     size: small
-    state: installed
+    state: removed
 
   - name: wml-accelerator
     description: Watson Machine Learning Accelerator
@@ -338,11 +338,11 @@ cp4d:
 
   - name: ws
     description: Watson Studio
-    state: installed
+    state: removed
 
   - name: ws-pipelines
     description: Watson Studio Pipelines
-    state: installed
+    state: removed
 
   - name: ws-runtimes
     description: Watson Studio Runtimes
@@ -353,7 +353,7 @@ cp4d:
     #- ibm-cpd-ws-runtime-231-pygpu
     #- ibm-cpd-ws-runtime-241-r
     #- ibm-cpd-ws-runtime-231-r
-    state: installed 
+    state: removed 
 
 #
 # Cartridges where extra work is needed (will not install automatically)
