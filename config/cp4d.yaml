@@ -296,7 +296,7 @@ cp4d:
 
   - name: watsonx_data
     description: watsonx.data
-    state: installed
+    state: removed
 
   - name: watsonx_governance
     description: watsonx.governance
