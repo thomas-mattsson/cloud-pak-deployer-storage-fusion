@@ -7,7 +7,7 @@ global_config:
 
 openshift:
 - name: "{{ env_id }}"
-  ocp_version: 4.15
+  ocp_version: 4.16
   cluster_name: PATCHED_BY_JOB
   domain_name: PATCHED_BY_JOB
   gpu:
