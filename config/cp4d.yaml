@@ -88,7 +88,7 @@ cp4d:
     
   - name: datastage-ent
     description: DataStage Enterprise
-    state: removed
+    state: installed
 
   - name: datastage-ent-plus
     description: DataStage Enterprise Plus
@@ -225,7 +225,7 @@ cp4d:
 
   - name: streamsets
     description: IBM StreamSets
-    state: removed
+    state: installed
 
   - name: syntheticdata
     description: Synthetic Data Generator
@@ -430,6 +430,8 @@ cp4d:
     installation_options:
       enableKnowledgeGraph: True
       enableDataQuality: True
+      enableSemanticAutomation: True
+      disable_models: True
 
   - name: ikc_standard
     description: IBM Knowledge Catalog - Standard edition
