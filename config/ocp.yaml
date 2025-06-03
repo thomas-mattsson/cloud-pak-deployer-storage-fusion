@@ -12,9 +12,9 @@ openshift:
   cluster_name: PATCHED_BY_JOB
   domain_name: PATCHED_BY_JOB
   gpu:
-    install: True
+    install: False
   openshift_ai:
-    install: True
+    install: False
     channel: auto
   mcg:
     install: False
