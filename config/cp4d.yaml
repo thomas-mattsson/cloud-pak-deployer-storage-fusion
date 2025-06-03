@@ -30,7 +30,7 @@ cp4d:
   db2u_limited_privileges: False
   use_fs_iam: True
   operators_project: cpd-operators
-  ibm_cert_manager: False
+  ibm_cert_manager: True
   state: installed
   cartridges:
   - name: cp-foundation
@@ -366,27 +366,27 @@ cp4d:
       state: removed
     # Embedding models
     - model_id: all-minilm-l6-v2
-      state: installed
+      state: removed
     - model_id: all-minilm-l12-v2
-      state: installed
+      state: removed
     - model_id: ms-marco-minilm-l-12-v2
-      state: installed
+      state: removed
     - model_id: multilingual-e5-large
-      state: installed
+      state: removed
     - model_id: ibm-slate-30m-english-rtrvr
-      state: installed
+      state: removed
     - model_id: ibm-slate-125m-english-rtrvr
-      state: installed
+      state: removed
     - model_id: granite-embedding-107m-multilingual
-      state: installed
+      state: removed
     - model_id: granite-embedding-278m-multilingual
-      state: installed
+      state: removed
     - model_id: wdu
-      state: installed
+      state: removed
       
   - name: watsonx_data
     description: watsonx.data
-    state: installed
+    state: removed
 
   - name: watsonx_governance
     description: watsonx.governance
@@ -470,7 +470,7 @@ cp4d:
     description: Watson Studio Runtimes
     runtimes:
     - ibm-cpd-ws-runtime-241-py
-    #- ibm-cpd-ws-runtime-241-pygpu
+    - ibm-cpd-ws-runtime-241-pygpu
     #- ibm-cpd-ws-runtime-241-r
     state: installed 
 
