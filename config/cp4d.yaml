@@ -271,7 +271,7 @@ cp4d:
 
   - name: watsonx_ai
     description: watsonx.ai
-    state: installed
+    state: removed
     installation_options:
       tuning_disabled: true
       lite_install: false
@@ -450,7 +450,7 @@ cp4d:
   - name: wml
     description: Watson Machine Learning
     size: small
-    state: installed
+    state: removed
 
   - name: wml-accelerator
     description: Watson Machine Learning Accelerator
@@ -460,7 +460,7 @@ cp4d:
 
   - name: ws
     description: Watson Studio
-    state: installed
+    state: removed
 
   - name: ws-pipelines
     description: Watson Studio Pipelines
