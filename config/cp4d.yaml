@@ -450,7 +450,7 @@ cp4d:
   - name: wml
     description: Watson Machine Learning
     size: small
-    state: removed
+    state: installed
 
   - name: wml-accelerator
     description: Watson Machine Learning Accelerator
@@ -460,7 +460,7 @@ cp4d:
 
   - name: ws
     description: Watson Studio
-    state: removed
+    state: installed
 
   - name: ws-pipelines
     description: Watson Studio Pipelines
