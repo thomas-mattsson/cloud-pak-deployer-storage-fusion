@@ -271,7 +271,7 @@ cp4d:
 
   - name: watsonx_ai
     description: watsonx.ai
-    state: removed
+    state: installed
     installation_options:
       tuning_disabled: true
       lite_install: false
