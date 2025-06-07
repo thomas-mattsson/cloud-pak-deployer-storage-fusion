@@ -18,7 +18,7 @@ cp4d:
   # - text-to-speech
   # - watson-assistant
   # - watson-discovery
-  # - watsonx-ai
+  - watsonx-ai
   # - watsonx-code-assistant-ansible
   # - watsonx-code-assistant-z
   # - watsonx-data
