@@ -34,7 +34,7 @@ spec:
         - name: CPD_OLM_UTILS_V2_IMAGE
           value: 'icr.io/cpopen/cpd/olm-utils-v2:latest'
         - name: CPD_OLM_UTILS_V3_IMAGE
-          value: 'icr.io/cpopen/cpd/olm-utils-v3:latest'
+          value: 'icr.io/cpopen/cpd/olm-utils-v3:5.2.0'
   triggers:
     - type: "ConfigChange"
   output:
