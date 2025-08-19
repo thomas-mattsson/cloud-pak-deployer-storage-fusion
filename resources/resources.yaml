@@ -5,6 +5,7 @@ metadata:
   namespace: cloud-pak-deployer
 data:
   config-git-repo: https://github.com/thomas-mattsson/cloud-pak-deployer-gitops
+  config-git-ref: spss
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -45,7 +46,7 @@ metadata:
   name: cloud-pak-deployer-status
   namespace: cloud-pak-deployer
 spec:
-  storageClassName: ibm-storage-fusion-cp-sc  # ocs-storagecluster-cephfs
+  storageClassName: ocs-storagecluster-cephfs
   accessModes:
   - ReadWriteMany
   resources:
