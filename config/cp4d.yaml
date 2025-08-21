@@ -447,7 +447,7 @@ cp4d:
   - name: wkc
     description: IBM Knowledge Catalog
     size: small
-    state: removed
+    state: installed
     installation_options:
       enableKnowledgeGraph: True
       enableDataQuality: True
