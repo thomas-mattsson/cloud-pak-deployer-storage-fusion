@@ -13,8 +13,8 @@ openshift:
   gpu:
     install: True
   openshift_ai:
-    install: auto
-    channel: fast
+    install: True
+    channel: auto
   mcg:
     install: False
     storage_type: storage-class
