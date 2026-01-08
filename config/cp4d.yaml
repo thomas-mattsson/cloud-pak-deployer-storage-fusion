@@ -452,8 +452,7 @@ cp4d:
   - name: wca
     description: watsonx Code Assistant
     installation_options:
-      rag_enabled:
-        enabled: true
+      rag_enabled: true
     state: installed
 
   - name: wca-ansible
