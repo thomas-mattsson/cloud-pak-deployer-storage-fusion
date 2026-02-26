@@ -2,7 +2,7 @@
 cp4d:
 - project: cpd
   openshift_cluster_name: "{{ env_id }}"
-  cp4d_version: 5.3.0
+  cp4d_version: 5.3.1
   cp4d_entitlement: 
   # - cpd-enterprise
   # - cpd-standard
@@ -18,20 +18,20 @@ cp4d:
   # - text-to-speech
   # - watson-assistant
   # - watson-discovery
-  # - watsonx-ai
+    - watsonx-ai
   # - watsonx-code-assistant-ansible
   # - watsonx-code-assistant-z
-  - watsonx-data
-  # - watsonx-gov-mm
+    - watsonx-data
+    - watsonx-gov-mm
   # - watsonx-gov-rc
   # - watsonx-orchestrate
-  cp4d_production_license: True
+  cp4d_production_license: False
   accept_licenses: True
   db2u_limited_privileges: False
   use_fs_iam: True
   operators_project: cpd-operators
   ibm_cert_manager: False
-  install_day0_patch: True
+  install_day0_patch: False
   state: installed
   cartridges:
   - name: cp-foundation
@@ -283,7 +283,7 @@ cp4d:
 
   - name: watsonx_ai
     description: watsonx.ai
-    state: removed
+    state: installed
     installation_options:
       tuning_disabled: true
       lite_install: false
@@ -392,7 +392,7 @@ cp4d:
 
   - name: watsonx_data
     description: watsonx.data
-    state: removed
+    state: installed
 
   - name: watsonx_dataintegration
     description: watsonx.data integration
@@ -423,18 +423,18 @@ cp4d:
 
   - name: watsonx_data_premium
     description: watsonx.data Premium
-    state: installed
+    state: removed
     installation_options:
    #   wxd_premium_enable_models_on: gpu
       license_type: premium_non_prod
 
   - name: watsonx_governance
     description: watsonx.governance
-    state: removed
+    state: installed
     installation_options:
-      installType: all
+      installType: mm
       enableFactsheet: true
-      enableOpenpages: true
+      enableOpenpages: false
       enableOpenscale: true
 
   - name: watsonx_orchestrate
@@ -519,7 +519,7 @@ cp4d:
 
   - name: ws-pipelines
     description: Watson Studio Pipelines
-    state: removed
+    state: installed
 
   - name: ws-runtimes
     description: Watson Studio Runtimes
