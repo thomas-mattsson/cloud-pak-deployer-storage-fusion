@@ -46,7 +46,7 @@ metadata:
   name: cloud-pak-deployer-status
   namespace: cloud-pak-deployer
 spec:
-  storageClassName: ocs-storagecluster-cephfs
+  storageClassName: ocs-external-storagecluster-cephfs
   accessModes:
   - ReadWriteMany
   resources:
@@ -72,7 +72,7 @@ spec:
     spec:
       containers:
       - name: cloud-pak-deployer
-        image: image-registry.openshift-image-registry.svc:5000/cloud-pak-deployer/cloud-pak-deployer:latest
+        image: quay.io/cloud-pak-deployer/cloud-pak-deployer:latest
         imagePullPolicy: Always
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
