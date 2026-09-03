@@ -7,7 +7,7 @@ global_config:
 
 openshift:
 - name: "{{ env_id }}"
-  ocp_version: 4.19
+  ocp_version: 4.21
   cluster_name: PATCHED_BY_JOB
   domain_name: PATCHED_BY_JOB
   gpu:
@@ -22,5 +22,5 @@ openshift:
   openshift_storage:
   - storage_name: custom
     storage_type: custom
-    ocp_storage_class_file: ocs-external-storagecluster-cephfs
-    ocp_storage_class_block: ocs-external-storagecluster-ceph-rbd
+    ocp_storage_class_file: ocs-storagecluster-cephfs
+    ocp_storage_class_block: ocs-storagecluster-ceph-rbd
