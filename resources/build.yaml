@@ -23,7 +23,7 @@ spec:
   source:
     type: Git
     git:
-      uri: 'https://github.com/IBM/cloud-pak-deployer'
+      uri: 'https://github.com/thomas-mattsson/cloud-pak-deployer'
   strategy:
     type: Docker
     dockerStrategy:
