@@ -5,7 +5,7 @@ metadata:
   namespace: cloud-pak-deployer
 data:
   config-git-repo: https://github.com/thomas-mattsson/cloud-pak-deployer-gitops
-  config-git-ref: orchestrate-531
+  config-git-ref: orchestrate-power
 ---
 apiVersion: v1
 kind: ServiceAccount
