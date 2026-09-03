@@ -23,22 +23,19 @@ spec:
   source:
     type: Git
     git:
-      uri: 'https://github.com/thomas-mattsson/cloud-pak-deployer'
+      uri: 'https://github.com/IBM/cloud-pak-deployer'
   strategy:
     type: Docker
     dockerStrategy:
+      dockerfilePath: Dockerfile.ppc64le
       imageOptimizationPolicy: SkipLayers
       buildArgs:
-        - name: CPD_OLM_UTILS_V1_IMAGE
-          value: 'icr.io/cpopen/cpd/olm-utils:latest'
-        - name: CPD_OLM_UTILS_V2_IMAGE
-          value: 'icr.io/cpopen/cpd/olm-utils-v2:latest'
         - name: CPD_OLM_UTILS_V3_IMAGE
-          value: 'icr.io/cpopen/cpd/olm-utils-v3:latest'
+          value: 'icr.io/cpopen/cpd/olm-utils-v3:latest.ppc64le'
         - name: CPD_OLM_UTILS_V4_IMAGE
-          value: 'icr.io/cpopen/cpd/olm-utils-v4:latest'
+          value: 'icr.io/cpopen/cpd/olm-utils-v4:5.4.0.ppc64le'
   triggers:
-    - type: "ConfigChange"
+    - type: ConfigChange
   output:
     to:
       kind: ImageStreamTag
