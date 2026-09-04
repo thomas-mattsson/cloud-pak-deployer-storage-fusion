@@ -28,7 +28,7 @@ cp4d:
   # - watsonx-code-assistant-z
   # - watsonx-data
   # - watsonx-data-reserved
-  # - watsonx-data-premium
+  - watsonx-data-premium
   # - watsonx-data-premium-reserved
   # - watsonx-dataintegration
   # - watsonx-dataintegration-reserved
@@ -42,7 +42,7 @@ cp4d:
   # - watsonx-dataintelligence-transition-reserved-vpc
   # - watsonx-gov-mm
   # - watsonx-gov-rc
-  - watsonx-orchestrate
+  # - watsonx-orchestrate
   # - watson-orchestrate-with-assistant
   cp4d_production_license: True
   accept_licenses: True
@@ -523,10 +523,10 @@ cp4d:
 
   - name: watsonx_data_premium
     description: watsonx.data Premium
-    state: removed
+    state: installed
     installation_options:
-      wxd_premium_enable_models_on: gpu
-      licenseType: premium
+      # wxd_premium_enable_models_on: gpu
+      licenseType: premium_non_prod
 
   - name: watsonx_governance
     description: watsonx.governance
@@ -544,7 +544,7 @@ cp4d:
 
   - name: watsonx_orchestrate
     description: watsonx.orchestrate
-    state: installed
+    state: removed
     instances:
     - name: wxo-instance
       description: "watsonx Orchestrate instance"
