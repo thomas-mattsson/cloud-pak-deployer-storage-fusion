@@ -16,9 +16,9 @@ openshift:
     install: True
     channel: auto
   mcg:
-    install: False
+    install: True
     storage_type: storage-class
-    storage_class: ibm-storage-fusion-cp-sc
+    storage_class: ocs-external-storagecluster-ceph-rbd
   openshift_storage:
   - storage_name: custom
     storage_type: custom
