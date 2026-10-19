@@ -1,8 +1,8 @@
----
 cp4d:
 - project: cpd
   openshift_cluster_name: "{{ env_id }}"
-  cp4d_version: 5.3.1
+  cp4d_version: 5.4.0
+  cp4d_patch_id: latest
   cp4d_entitlement: 
   # - cpd-enterprise
   # - cpd-standard
@@ -22,13 +22,13 @@ cp4d:
   # - text-to-speech
   # - watson-assistant
   # - watson-discovery
-  # - watsonx-ai
+  - watsonx-ai
   # - watsonx-code-assistant
   # - watsonx-code-assistant-ansible
   # - watsonx-code-assistant-z
   # - watsonx-data
   # - watsonx-data-reserved
-  # - watsonx-data-premium
+  - watsonx-data-premium
   # - watsonx-data-premium-reserved
   # - watsonx-dataintegration
   # - watsonx-dataintegration-reserved
@@ -45,7 +45,7 @@ cp4d:
   - watsonx-orchestrate
   # - watson-orchestrate-with-assistant
   cp4d_production_license: True
-  accept_licenses: True
+  accept_licenses: False
   db2u_limited_privileges: False
   operators_project: cpd-operators
   ibm_cert_manager: False
@@ -148,6 +148,10 @@ cp4d:
     #       cpu_limit: 3
     #       memory_request: 4Gi
     #       memory_limit: 12Gi    
+
+  - name: datastax_mc
+    description: DataStax Mission Control
+    state: removed
 
   - name: db2
     description: Db2 OLTP
@@ -256,7 +260,7 @@ cp4d:
     size: small
     state: removed
     installation_options:
-      replication_license_type: IDRC    
+      licenseType: IDRC    
 
   - name: rstudio
     description: RStudio Server with R 3.6
@@ -365,8 +369,6 @@ cp4d:
       #    kubernetes.io/hostname: hostname
     - model_id: codellama-codellama-34b-instruct-hf
       state: removed
-    - model_id: codestral-2501
-      state: removed
     - model_id: codestral-2508
       state: removed
     - model_id: devstral-medium-2507
@@ -385,19 +387,11 @@ cp4d:
       state: removed
     - model_id: granite-4-h-small
       state: removed
-    - model_id: granite-3-2-8b-instruct
-      state: removed
     - model_id: granite-3-3-8b-instruct
       state: removed
     - model_id: granite-3-2b-instruct
       state: removed
     - model_id: granite-3-8b-instruct
-      state: removed
-    - model_id: granite-guardian-3-2b
-      state: removed
-    - model_id: granite-guardian-3-8b
-      state: removed
-    - model_id: granite-guardian-3-2-5b
       state: removed
     - model_id: granite-3b-code-instruct
       state: removed
@@ -413,17 +407,17 @@ cp4d:
       state: removed
     - model_id: granite-docling-258M
       state: removed
-    - model_id: granite-vision-3-2-2b
+    - model_id: granite-guardian-3-2-5b
       state: removed
     - model_id: granite-vision-3-3-2b
       state: removed
-    - model_id: ibm-defense-3-3-8b-instruct
+    - model_id: ibm/granite-4-1b-speech
       state: removed
     - model_id: ibm-defense-4-0-micro
       state: removed
     - model_id: ibm-defense-4-0-small
       state: removed
-    - model_id: llama-3-2-1b-instruct
+    - model_id: ibm-defense-3-3-8b-instruct
       state: removed
     - model_id: llama-4-maverick-17b-128e-instruct-fp8
       state: removed
@@ -432,6 +426,8 @@ cp4d:
     - model_id: llama-4-scout-17b-16e-instruct-int4
       state: removed
     - model_id: llama-3-3-70b-instruct
+      state: removed
+    - model_id: llama-3-2-1b-instruct
       state: removed
     - model_id: llama-3-2-1b-instruct
       state: removed
@@ -447,25 +443,39 @@ cp4d:
       state: removed
     - model_id: llama-3-1-70b-instruct
       state: removed
-    - model_id: ministral-8b-instruct
+    - model_id: magistral-small-2509
+      state: removed
+    - model_id: magistral-medium-2509
       state: removed
     - model_id: ministral-14b-instruct-2512
+      state: removed
+    - model_id: ministral-14b-instruct-2512
+      state: removed
+    - model_id: ministral-3b-instruct-2512
+      state: removed
+    - model_id: ministral-8b-instruct-2512
+      state: removed
+    - model_id: ministral-3-14b-instruct-2512-bf16
       state: removed
     - model_id: mistral-small-3-2-24b-instruct-2506
       state: removed
     - model_id: mistral-small-3-1-24b-instruct-2503
       state: removed
-    - model_id: mistral-medium-2505
-      state: removed
     - model_id: mistral-medium-2508
+      state: removed
+    - model_id: mistral-large-2512
       state: removed
     - model_id: mistral-large-instruct-2411
       state: removed
-    - model_id: mistral-large-2512
+    - model_id: nvidia-nemotron-nano-12b-v2-vl-fp8
+      state: removed
+    - model_id: nemotron-3-nano-30b-a3b-fp8
       state: removed
     - model_id: pixtral-large-instruct
       state: removed
     - model_id: voxtral-small-2507
+      state: removed
+    - model_id: voxtral-mini-2507
       state: removed
     # Embedding models
     - model_id: all-minilm-l6-v2
@@ -476,15 +486,35 @@ cp4d:
       state: removed
     - model_id: granite-embedding-278m-multilingual
       state: removed
-    - model_id: granite-embedding-english-reranker-r2
-      state: removed
     - model_id: multilingual-e5-large
       state: removed
     - model_id: ibm-slate-30m-english-rtrvr
       state: removed
     - model_id: ibm-slate-125m-english-rtrvr
       state: removed
+    # Reranker models
+    - model_id: granite-embedding-english-reranker-r2
+      state: removed
     - model_id: ms-marco-minilm-l-12-v2
+      state: removed
+    # Document text processing
+    - model_id: wdu
+      state: removed
+    # Time series
+    - model_id: granite-ttm-512-96-r2
+      state: removed
+    - model_id: granite-ttm-1024-96-r2
+      state: removed
+    - model_id: granite-ttm-1536-96-r2
+      state: removed
+    # Available for tuning
+    - model_id: granite-3-1-8b-base
+      state: removed
+    - model_id: llama-3-1-8b
+      state: removed
+    - model_id: llama-3-1-70b
+      state: removed
+    - model_id: llama-3-1-70b-gptq
       state: removed
 
   - name: watsonx_data
@@ -519,7 +549,6 @@ cp4d:
       enableSemanticEmbedding: false
       enableTextToSql: false
       enableModelsOn: cpu
-      customModelTextToSQL: granite-3-3-8b-instruct
 
   - name: watsonx_data_premium
     description: watsonx.data Premium
@@ -527,6 +556,21 @@ cp4d:
     installation_options:
       wxd_premium_enable_models_on: gpu
       licenseType: premium
+      component:
+      - premium
+
+  # If you install watsonx_data_premium_dependencies, watsonx_data_premium must also be installed
+  - name: watsonx_data_premium_dependencies
+    description: watsonx.data Premium all features
+    state: removed
+
+  - name: ibm_wxd_opensearch
+    description: watsonx.data OpenSearch
+    state: removed
+
+  - name: ibm_wxd_openrag
+    description: watsonx.data OpenRAG
+    state: installed
 
   - name: watsonx_governance
     description: watsonx.governance
@@ -551,7 +595,7 @@ cp4d:
     installation_options:
       installMode: "agentic"  
       watsonxAI:
-        watsonxaiifm: false
+        watsonxaiifm: true
         syomModels: []
         ootbModels: []
 
