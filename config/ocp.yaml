@@ -7,13 +7,13 @@ global_config:
 
 openshift:
 - name: "{{ env_id }}"
-  ocp_version: 4.19
+  ocp_version: 4.21
   cluster_name: PATCHED_BY_JOB
   domain_name: PATCHED_BY_JOB
   gpu:
-    install: False
+    install: True
   openshift_ai:
-    install: False
+    install: True
     channel: auto
   mcg:
     install: False
