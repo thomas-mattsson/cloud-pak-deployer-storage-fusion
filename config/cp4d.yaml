@@ -4,7 +4,7 @@ cp4d:
   cp4d_version: 5.4.0
   cp4d_patch_id: latest
   cp4d_entitlement: 
-  # - cpd-enterprise
+  - cpd-enterprise
   # - cpd-standard
   # - cognos-analytics
   # - data-lineage
@@ -28,7 +28,7 @@ cp4d:
   # - watsonx-code-assistant-z
   # - watsonx-data
   # - watsonx-data-reserved
-  - watsonx-data-premium
+  # - watsonx-data-premium
   # - watsonx-data-premium-reserved
   # - watsonx-dataintegration
   # - watsonx-dataintegration-reserved
@@ -42,7 +42,7 @@ cp4d:
   # - watsonx-dataintelligence-transition-reserved-vpc
   # - watsonx-gov-mm
   # - watsonx-gov-rc
-  - watsonx-orchestrate
+  # - watsonx-orchestrate
   # - watson-orchestrate-with-assistant
   cp4d_production_license: True
   accept_licenses: True
