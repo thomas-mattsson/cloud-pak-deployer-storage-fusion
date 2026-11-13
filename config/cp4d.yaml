@@ -595,9 +595,9 @@ cp4d:
     installation_options:
       installMode: "agentic"  
       watsonxAI:
-        watsonxaiifm: true
+        watsonxaiifm: false
         syomModels: []
-        ootbModels: ['gpt-oss-120b']
+        ootbModels: []
 
   - name: wca
     description: watsonx Code Assistant
