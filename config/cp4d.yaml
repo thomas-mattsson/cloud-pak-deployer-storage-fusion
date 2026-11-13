@@ -26,9 +26,9 @@ cp4d:
   # - watsonx-code-assistant
   # - watsonx-code-assistant-ansible
   # - watsonx-code-assistant-z
-  - watsonx-data
+  # - watsonx-data
   # - watsonx-data-reserved
-  # - watsonx-data-premium
+  - watsonx-data-premium
   # - watsonx-data-premium-reserved
   # - watsonx-dataintegration
   # - watsonx-dataintegration-reserved
@@ -552,9 +552,9 @@ cp4d:
 
   - name: watsonx_data_premium
     description: watsonx.data Premium
-    state: removed
+    state: installed
     installation_options:
-      wxd_premium_enable_models_on: gpu
+      wxd_premium_enable_models_on: cpu
       licenseType: premium
       component:
       - premium
